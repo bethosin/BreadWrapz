@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Breadwrapz Food - Order</title>
+    <link
+      rel="stylesheet"
+      href="./Assets/bootstrap-5.3.7-dist/css/bootstrap.css"
+    />
+      <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      .bg-brand {
+        background-color: #000;
+      }
+      .text-brand {
+        color: #ff6600;
+      }
+      .btn-brand {
+        background: #ff6600;
+        color: #000;
+        font-weight: bold;
+      }
+      .btn-brand:hover {
+        background: #000;
+        color: #ff6600;
+        border: 1px solid #ff6600;
+      }
+      footer h5 {
+        color: #ff6600;
+      }
+      footer a:hover {
+        color: #ff6600 !important;
+      }
+      .logo-img {
+        height: 50px;
+      }
+
+        .whatsapp-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        border-radius: 50%;
+        padding: 15px 18px;
+        z-index: 1000;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        transition: transform 0.2s;
+      }
+
+      .whatsapp-btn:hover {
+        transform: scale(1.1);
+      }
+
+      @media (max-width: 576px) {
+        .whatsapp-btn {
+          bottom: 15px;
+          right: 15px;
+          padding: 12px 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand fw-bold text-brand" href="index.html">
+          <img src="./Assets/Logo.jpg" alt="Foodie Logo" class="logo-img" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navMenu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="menu.html">Menu</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active text-brand" href="order.html">Order</a>
+            </li>
+          </ul>
+          <a href="order.html" class="btn btn-brand ms-3">
+            🛒 <span id="cartCount" class="badge bg-light text-dark">0</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container py-5">
+      <h2 class="text-center mb-4">Your Order</h2>
+
+      <div class="mb-3">
+        <input
+          type="email"
+          id="userEmail"
+          placeholder="Enter your email"
+          class="form-control"
+        />
+      </div>
+      <ul id="orderList" class="list-group mb-3"></ul>
+      <div class="d-flex justify-content-between align-items-center flex-wrap">
+        <h4>Total: ₦<span id="orderTotal">0</span></h4>
+        <div class="d-flex flex-column flex-md-row mt-2 mt-md-0">
+          <button
+            class="btn btn-danger mb-2 mb-md-0 me-md-2"
+            onclick="clearOrder()"
+          >
+            Cancel Order
+          </button>
+          <button class="btn btn-success" onclick="payWithPaystack()">
+            Pay with Paystack
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="bg-brand text-light pt-5 pb-3 mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <h5 class="fw-bold">Quick Links</h5>
+            <ul class="list-unstyled">
+              <li>
+                <a href="index.html" class="text-decoration-none text-light"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a href="menu.html" class="text-decoration-none text-light"
+                  >Menu</a
+                >
+              </li>
+              <li>
+                <a href="order.html" class="text-decoration-none text-light"
+                  >Order</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4 mb-3">
+            <h5 class="fw-bold">About Us</h5>
+            <p class="small">
+              At Breadwrapz Food, we serve fresh and delicious meals made with
+              love. Your satisfaction is our priority.
+            </p>
+          </div>
+          <div class="col-md-4 mb-3">
+            <h5 class="fw-bold">Follow Us</h5>
+            <a href="https://web.facebook.com/Breadwrapz" class="text-light me-3"
+              ><i class="fab fa-facebook fa-lg"></i
+            ></a>
+            <a href="https://www.twitter.com/BreadwrapzFoods" class="text-light me-3"
+              ><i class="fab fa-twitter fa-lg"></i
+            ></a>
+            <a href="https://www.instagram.com/breadwrapz?igsh=aDtanFrazkyZ2NI" class="text-light me-3"
+              ><i class="fab fa-instagram fa-lg"></i
+            ></a>
+            <a href="mailto:breadwrapzfood@gmail.com" class="text-light"
+              ><i class="fa-regular fa-envelope fa-lg"></i
+            ></a>
+          </div>
+        </div>
+        <hr class="border-light" />
+        <p class="text-center mb-0">
+          &copy; 2025 <span class="text-brand">BREADWRAPZ FOOD</span>. All
+          rights reserved.
+        </p>
+      </div>
+    </footer>
+
+     <a href="https://wa.me/2348086900533" target="_blank" class="btn btn-success whatsapp-btn">
+      <i class="fab fa-whatsapp fa-2x"></i>
+    </a>
+
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+
+    <script src="./Assets/bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
