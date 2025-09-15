@@ -73,7 +73,7 @@ const clearOrder = () => {
 };
 
 const payWithPaystack = () => {
-  const publicKey = "pk_test_75d273cdb82d8ba9e492afa7990f621d3511745a"; // Replace with your real key
+  const publicKey = "pk_test_75d273cdb82d8ba9e492afa7990f621d3511745a"; 
   if (!publicKey) return alert("Paystack public key is missing!");
   if (total <= 0) return alert("Your cart is empty!");
 
